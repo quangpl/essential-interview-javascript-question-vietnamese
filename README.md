@@ -65,7 +65,7 @@ giá trị của `x` là `NaN`, các câu lệnh không giống nhau.
 
 ### Câu trả lời
 
-Một trong những nhược điểm của việc khai báo các hàm trực tiếp bằng  các đối tượng JavaScript là chúng quản lý bộ nhớ rất kém . Song song đó, một bản sao mới của hàmđược tạo cho mỗi phiên bản của một đối tượng (biến). Hãy xem ví dụ bên dưới :
+Một trong những nhược điểm của việc khai báo các hàm trực tiếp bằng các đối tượng JavaScript là chúng quản lý bộ nhớ rất kém . Song song đó, một bản sao mới của hàm được tạo cho mỗi phiên bản của một đối tượng (biến). Hãy xem ví dụ bên dưới :
 
 ```javascript
 var Employee = function (name, company, salary) {
@@ -121,13 +121,13 @@ var globalVar = "abc";
       "innerFuncVar = " + innerFuncVar + "\n" +
       "globalVar = " + globalVar);
   //kết thúc phạm vi của  innerFunction
-  })(5); // Truyền tham số 5 
+  })(5); // Truyền tham số 5 
 // kết thúc phạm vi của  outerFunction
 })(7); //Truyền tham số 7
 ```
 
 
-`InternalFunction` là một Closure được định nghĩa bên trong` outsFunction` và có quyền truy cập vào tất cả các biến được khai báo và định nghĩa trong phạm vi hàm cha. Ngoài chức năng này thì  Closure có quyền truy cập vào biến toàn cục .
+innerFunction là một Closure được định nghĩa bên trong outerFunction và có quyền truy cập vào tất cả các biến được khai báo và định nghĩa trong phạm vi hàm cha. Ngoài chức năng này thì Closure có quyền truy cập vào biến toàn cục .
 
 
 ## Câu 5. Viết hàm `mul` để được kết quả như bên dưới 
@@ -178,8 +178,7 @@ javascript
 arrayList = [];
 ```
 
-Đoạn mã trên sẽ làm cho biến `ArrayList` thành một mảng trống mới. Cách  này được khuyến nghị nếu bạn không có ** tham chiếu đến mảng ban đầu ** 
-Ví dụ:
+Đoạn mã trên sẽ làm cho biến ArrayList thành một mảng trống mới. Cách này được khuyến nghị nếu bạn không có **tham chiếu đến mảng ban đầu** Ví dụ:
 
 ```javascript
 var arrayList = ['a', 'b', 'c', 'd', 'e', 'f']; // Tạo mảng 
@@ -233,7 +232,7 @@ console.log(output);
 
 
 
-## Câu 8.  Kết quả của đoạn code sau đây ?
+## Câu 8. Kết quả của đoạn code sau đây ?
 
 
 ```javascript
@@ -264,7 +263,7 @@ console.log(output);
 ```
 ### Câu trả lời
 
-Đoạn mã trên sẽ xuất ra `undefined` .  Toán tử `delete` được sử dụng để xóa một thuộc tính khỏi một đối tượng. Ở đây `x` là một đối tượng có foo là một thuộc tính và từ một hàm IIFE,  mình đang xóa thuộc tính`foo` của đối tượng` x` và sau khi xóa, mình đang tham chiếu thuộc tính đã xóa **foo**  nên kết quả sẽ là `undefined`.
+Đoạn mã trên sẽ xuất ra `undefined` .  Toán tử `delete` được sử dụng để xóa một thuộc tính khỏi một đối tượng. Ở đây `x` là một đối tượng có foo là một thuộc tính và từ một  hàm IIFE, mình  đang xóa thuộc tính`foo` của đối tượng` x` và sau khi xóa, mình đang tham chiếu thuộc tính đã xóa **foo**  nên kết quả sẽ là `undefined`.
 
 ## Câu 10.  Kết quả của đoạn code sau đây ?
 
@@ -281,7 +280,7 @@ console.log(emp1.company);
 ### Câu trả lời
 Đoạn mã trên sẽ xuất ra `xyz` . Ở đây, đối tượng `emp1` có company là  **prototype**, xóa toán tử không xóa thuộc tính **prototype**
 
-Đối tượng `emp1` không có ** company** làm thuộc tính của mình. bạn có thể kiểm tra bằng cách  `console.log (emp1.hasOwnProperty ('company')); // Kết quả : false` Tuy nhiên, chúng ta có thể xóa thuộc tính **company** khỏi đối tượng `Employee` bằng cách sử dụng ` delete Employee.company` hoặc chúng ta cũng có thể xóa khỏi đối tượng `emp1` bằng cách sử dụng thuộc tính `__proto__`  và  `delete emp1.__proto__.company`.
+Đối tượng `emp1` không có ** company** làm thuộc tính  của mình. bạn có thể kiểm tra bằng cách  `console.log (emp1.hasOwnProperty ('company')); // Kết quả : false` Tuy nhiên, chúng ta có thể xóa thuộc tính **company** khỏi đối tượng `Employee` bằng cách sử dụng `delete Employee.company` hoặc chúng ta cũng có thể xóa khỏi đối tượng `emp1` bằng cách sử dụng thuộc tính `__proto__`  và  `delete emp1.__proto__.company`.
 
 **CẬP NHẬT MỖI TUẦN - NHỚ STAR ĐỂ THEO DÕI CÂU HỎI MỚI NHÉ** 
 

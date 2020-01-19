@@ -32,7 +32,7 @@ Một biến có thể được khai báo nhưng không được xác định gi
 
 ```javascript
 var x; // khai báo biến x 
-typeof x === 'không xác định'; // kết quả : true 
+typeof x === 'undefined'; // kết quả : true 
 ```
 
 Một biến có thể không được khai báo cũng không được định nghĩa. Khi chúng ta  tham chiếu đên biến đó thì kết quả sẽ là `undefined`.

@@ -363,8 +363,7 @@ typeof bar();
 
 ### Câu trả lời
 
-  
- Kết quả sẽ là `Reference Error`. Để khắc phục lỗi trên ta sẽ thực hiện như sau : 
+ Kết quả sẽ là `Reference Error`. Để khắc phục lỗi trên ta sẽ thực hiện như sau : 
 
 **Cách 1**
 ```javascript

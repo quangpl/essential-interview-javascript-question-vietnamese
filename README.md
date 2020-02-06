@@ -282,6 +282,115 @@ console.log(emp1.company);
 
 Đối tượng `emp1` không có ** company** làm thuộc tính  của mình. bạn có thể kiểm tra bằng cách  `console.log (emp1.hasOwnProperty ('company')); // Kết quả : false` Tuy nhiên, chúng ta có thể xóa thuộc tính **company** khỏi đối tượng `Employee` bằng cách sử dụng `delete Employee.company` hoặc chúng ta cũng có thể xóa khỏi đối tượng `emp1` bằng cách sử dụng thuộc tính `__proto__`  và  `delete emp1.__proto__.company`.
 
+
+## Câu 11. `undefined x 1` trong JavaScript là gì?
+
+```javascript
+var trees = ["redwood", "bay", "cedar", "oak", "maple"];
+delete trees[3];
+```
+
+### Câu trả lời
+  - Khi bạn chạy code trên và `console.log(trees);` và bạn sẽ nhận được kết quả `["redwood", "bay", "cedar", undefined × 1, "maple"]`
+  - Trong các phiên bản gần đây của Chrome, bạn sẽ thấy từ  `empty` thay vì  `undefined x 1`
+  - Khi bạn chạy  trên trình duyệt Firefox thì bạn sẽ nhận được kết quả   `["redwood", "bay", "cedar", undefined, "maple"]`
+  
+Rõ ràng, Chrome có cách hiển thị  cho các index chưa được khởi tạo trong các mảng. Tuy nhiên, khi bạn kiểm tra  `trees[3] === undefined` trong bất kỳ trình duyệt nào, bạn sẽ nhận được kết quả là ` true`. Rõ ràng `undefined x 1` đại diện cho các phần tử hay index chưa được khởi tạo.
+
+
+  
+## Câu 12. Kết quả của đoạn code bên dưới là gì?
+
+```javascript
+var trees = ["xyz", "xxxx", "test", "ryan", "apple"];
+delete trees[3];
+console.log(trees.length);
+```
+### Câu trả lời  
+Kết qủa của đoạn code bên trên là `5`. Khi chúng ta sử dụng toán tử `delete` để xoá mảng các phần tử , thì độ dài mảng sẽ không ảnh hưởng. Điều này luôn đúng nếu bạn dùng `delete` cho từng phần tử của mảng.
+
+Bởi vì khi ta dùng toán tử `delete` để xoá các phần tử của mảng thì các phần từ đó sẽ được chuyển thành `undefined x 1` nên độ dài mảng không thay đổi là tất nhiên . Còn `undefined x 1` là gì, mời xem 
+  
+## Câu 13. Kết quả của đoạn code bên dưới là gì?
+
+```javascript
+var bar = true;
+console.log(bar + 0);   
+console.log(bar + "xyz");  
+console.log(bar + true);  
+console.log(bar + false);
+```
+### Câu trả lời
+
+Kết quả của đoạn code sẽ là `1, "truexyz", 2, 1` , bởi vì ta có quy luật sau : 
+  - Số + Số  -> Phép cộng 
+  - Biến Boolean + Số  -> Phép cộng 
+  - Biến Boolean + Biến Boolean --> Phép cộng 
+  - Số + Chuỗi  ->  Phép nối chuỗi 
+  - Chuỗi + Biến Boolean  ->  Phép nối chuỗi 
+  - Chuỗi + Chuỗi   ->  Phép nối chuỗi 
+
+
+  
+## Câu 14. Kết quả của đoạn code bên dưới là gì?
+
+```javascript
+var z = 1, y = z = typeof y;
+console.log(y);
+```
+### Câu trả lời
+
+
+Kết quả của code bên trên sẽ là  `"undefined"` .Theo như quy luật toán tử kết hợp với mức độ ưu tiên như nhau. Quy luật của toán tử gán là `Phải sang trái ` nên `typeof y` sẽ được xem xét đầu tiên và giá trị hiện tại của nó là  `"undefined"` và gán cho  `z`  sau đó gán cho `y` nên ta được kết quả như trên. 
+Code sẽ được thực hiện theo thứ tự bên dưới 
+```javascript
+var z;
+z = 1;
+var y;
+z = typeof y;
+y = z;
+
+
+  
+## Câu 15. Kết quả của đoạn code bên dưới là gì?
+
+  
+```javascript
+// NFE (Named Function Expression)
+var foo = function bar() { return 12; };
+typeof bar();
+```
+
+### Câu trả lời
+
+  
+ Kết quả sẽ là `Reference Error`. Để khắc phục lỗi trên ta sẽ thực hiện như sau : 
+
+**Cách 1**
+```javascript
+var bar = function() { return 12; };
+typeof bar();
+```
+
+**Cách 2**
+
+```javascript
+function bar() { return 12; };
+typeof bar();
+```
+
+Định nghĩa hàm chỉ có thể có một biến tham chiếu đó  là tên hàm , Ở Cách 1 `bar` tham chiếu đến một  `anonymous function` và trong Cách 2 chúng ta có định nghĩa `bar` là một tên hàm 
+
+```javascript
+var foo = function bar() {
+  // foo is visible here
+  // bar is visible here
+  console.log(typeof bar()); // Works here :)
+};
+// foo is visible here
+// bar is undefined here
+```
+
 **CẬP NHẬT MỖI TUẦN - NHỚ STAR ĐỂ THEO DÕI CÂU HỎI MỚI NHÉ** 
 
 
